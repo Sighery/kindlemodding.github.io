@@ -2,7 +2,7 @@
 
 
 
-function getSerialInfo(serial) {    
+function getSerialInfo(serial) {
     if (serial[0] == "G") { // New-style serial number
         if (serial.length < 6) {
             return -1
@@ -68,7 +68,7 @@ function searchForSerial() {
             } else {
                 if (Object.keys(kindle.serial_snippets).includes(serialInfo.serial_snippet)) {
                     // Kindle found
-                    
+
                     // Create header
                     const header = document.createElement('h3');
                     header.innerText = "Kindle Found:";
@@ -95,7 +95,7 @@ function searchForSerial() {
                         const row = document.createElement('tr');
                         const header = document.createElement('th');
                         const field = document.createElement('td');
-                        
+
                         header.style = "text-align: right;";
 
                         header.innerText = kindleInfo[0];
@@ -113,7 +113,7 @@ function searchForSerial() {
                         const row = document.createElement('tr');
                         const header = document.createElement('td');
                         const field = document.createElement('td');
-                        
+
                         header.style = "text-align: right;";
 
                         header.innerText = kindleInfo[0];
@@ -203,7 +203,7 @@ function generateTable() {
     document.getElementById("fullModelTable").appendChild(table);
 }
 
-fetch('/models.json').then(response => response.json()).then((data) => {
+fetch(window.siteBaseUrl + '/models.json').then(response => response.json()).then((data) => {
     window.kindleModels = data;
     generateTable();
 });

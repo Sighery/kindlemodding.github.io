@@ -22,9 +22,9 @@ title: Kindle Modding Wiki
 email: ""
 description: >- # this means to ignore newlines until "baseurl:"
   Documentation on the Kindle hacking and internals
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "kindlemodding.github.io" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  KindleModding
+github_username: Sighery
 
 # Build settings
 #theme: minima
