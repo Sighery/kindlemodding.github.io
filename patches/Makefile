@@ -23,5 +23,17 @@ patch-ads:
 	git revert --abort && \
 	git checkout main && git branch -D temp-revert
 
+.PHONY: patch-analytics
+patch-analytics:
+	git checkout -b temp-revert && \
+	git revert --no-commit 72a7ae4f8f7d26f947ce88e20a3ff68bcfa36871 && \
+	git revert --no-commit 28e71b8d3473f36a188a004aace0588895d27671 && \
+	git revert --no-commit 9d95f0ef324e4adbe61adf40726299d22af7aeee && \
+	git revert --no-commit 4d715e86b14834d064c33dd8ab1b6052a46a0034 && \
+	git revert --no-commit 9f746f439fec5c354fcf18ae786ab3fdbb579143 && \
+	git diff --cached > 02-analytics.patch && \
+	git revert --abort && \
+	git checkout main && git branch -D temp-revert
+
 .PHONY: generate-patches
-generate-patches: patch-ads
+generate-patches: patch-ads patch-analytics
